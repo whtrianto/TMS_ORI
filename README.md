@@ -1,7 +1,25 @@
-{event: {…}, xhr: {…}, options: {…}, exc: 'Internal Server Error'}
+jquery.min.js:2 
+ 
+ POST http://localhost/taci-mfg-trial/Tool_engineering/tool_bom_engin/submit_data 500 (Internal Server Error)
+send	@	jquery.min.js:2
+ajax	@	jquery.min.js:2
+(anonymous)	@	index:828
+dispatch	@	jquery.min.js:2
+v.handle	@	jquery.min.js:2
+trigger	@	jquery.min.js:2
+(anonymous)	@	jquery.min.js:2
+each	@	jquery.min.js:2
+each	@	jquery.min.js:2
+trigger	@	jquery.min.js:2
+k.fn.<computed>	@	jquery.min.js:2
+(anonymous)	@	index:808
+dispatch	@	jquery.min.js:2
+v.handle	@	jquery.min.js:2
+main.js:59 
+{event: k.Event, xhr: {…}, options: {…}, exc: 'Internal Server Error'}
 event
 : 
-{type: 'ajaxError', timeStamp: 1765168610553, jQuery3410559993277540815: true, isTrigger: 3, namespace: '', …}
+k.Event {type: 'ajaxError', timeStamp: 1765169120318, jQuery3410010100795622219327: true, isTrigger: 3, namespace: '', …}
 exc
 : 
 "Internal Server Error"
@@ -15,7 +33,7 @@ xhr
 : 
 Object
 
-
+-----------------------------
 
 
 pada bagian tambah data buat isiannya seperti ini Product	:		
