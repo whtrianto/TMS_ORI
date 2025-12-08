@@ -1,27 +1,11 @@
-SELECT TOP (1000) [HISTORY_ID]
-      ,[TD_ID]
-      ,[TD_PRODUCT_ID]
-      ,[PRODUCT_NAME]
-      ,[TD_PROCESS_ID]
-      ,[OPERATION_NAME]
-      ,[TD_TOOL_NAME]
-      ,[TOOL_RESOLVED_NAME]
-      ,[TD_DRAWING_NO]
-      ,[TD_REVISION]
-      ,[TD_STATUS]
-      ,[TD_EFFECTIVE_DATE]
-      ,[TD_MODIFIED_DATE]
-      ,[TD_MODIFIED_BY]
-      ,[TD_MATERIAL_ID]
-      ,[MATERIAL_NAME]
-      ,[HISTORY_CREATED_DATE]
-      ,[HISTORY_ACTION]
-      ,[HISTORY_SEQUENCE]
-      ,[TD_MAKER_ID]
-      ,[MAKER_NAME]
-      ,[TD_MIN_QTY]
-      ,[TD_REPLENISH_QTY]
-      ,[TD_PRICE]
-      ,[TD_TOOL_LIFE]
-      ,[TD_DESCRIPTION]
-  FROM [TMS_DB].[dbo].[TMS_TC_TOOL_DRAWING_ENGIN_HISTORY]
+Parse error: syntax error, unexpected '?' in C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Tool_engineering\controllers\Tool_draw_tooling.php on line 485
+A PHP Error was encountered
+Severity: Parsing Error
+
+Message: syntax error, unexpected '?'
+
+Filename: controllers/Tool_draw_tooling.php
+
+Line Number: 485
+
+Backtrace:
