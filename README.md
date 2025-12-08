@@ -1,28 +1,153 @@
-
-jquery.min.js:2 
- 
- POST http://localhost/taci-mfg-trial/Tool_engineering/tool_bom_engin/submit_data 500 (Internal Server Error)
-send	@	jquery.min.js:2
-ajax	@	jquery.min.js:2
-(anonymous)	@	index:828
-dispatch	@	jquery.min.js:2
-v.handle	@	jquery.min.js:2
-trigger	@	jquery.min.js:2
-(anonymous)	@	jquery.min.js:2
-each	@	jquery.min.js:2
-each	@	jquery.min.js:2
-trigger	@	jquery.min.js:2
-k.fn.<computed>	@	jquery.min.js:2
-(anonymous)	@	index:808
-dispatch	@	jquery.min.js:2
-v.handle	@	jquery.min.js:2
-{event: k.Event, xhr: {…}, options: {…}, exc: 'Internal Server Error'}
+{event: {…}, xhr: {…}, options: {…}, exc: SyntaxError: Unexpected token '<', "
+<div style"... is not valid JSON
+    at parse (<anonymous>)
+ …}
 event
 : 
-k.Event {type: 'ajaxError', timeStamp: 1765175221471, jQuery34108452157244990404: true, isTrigger: 3, namespace: '', …}
+currentTarget
+: 
+document
+data
+: 
+undefined
+delegateTarget
+: 
+document
+handleObj
+: 
+{type: 'ajaxError', origType: 'ajaxError', data: undefined, guid: 20, handler: ƒ, …}
+isTrigger
+: 
+3
+jQuery34105405006545810112
+: 
+true
+namespace
+: 
+""
+result
+: 
+undefined
+rnamespace
+: 
+null
+target
+: 
+document
+timeStamp
+: 
+1765176044543
+type
+: 
+"ajaxError"
+altKey
+: 
+(...)
+bubbles
+: 
+(...)
+button
+: 
+(...)
+buttons
+: 
+(...)
+cancelable
+: 
+(...)
+changedTouches
+: 
+(...)
+char
+: 
+(...)
+charCode
+: 
+(...)
+clientX
+: 
+(...)
+clientY
+: 
+(...)
+code
+: 
+(...)
+ctrlKey
+: 
+(...)
+detail
+: 
+(...)
+eventPhase
+: 
+(...)
+key
+: 
+(...)
+keyCode
+: 
+(...)
+metaKey
+: 
+(...)
+offsetX
+: 
+(...)
+offsetY
+: 
+(...)
+pageX
+: 
+(...)
+pageY
+: 
+(...)
+pointerId
+: 
+(...)
+pointerType
+: 
+(...)
+screenX
+: 
+(...)
+screenY
+: 
+(...)
+shiftKey
+: 
+(...)
+targetTouches
+: 
+(...)
+toElement
+: 
+(...)
+touches
+: 
+(...)
+view
+: 
+(...)
+which
+: 
+(...)
+[[Prototype]]
+: 
+Object
 exc
 : 
-"Internal Server Error"
+SyntaxError: Unexpected token '<', " <div style"... is not valid JSON at parse (<anonymous>) at http://localhost/taci-mfg-trial/assets/vendor/jquery/jquery.min.js:2:78358 at l (http://localhost/taci-mfg-trial/assets/vendor/jquery/jquery.min.js:2:78475) at XMLHttpRequest.<anonymous> (http://localhost/taci-mfg-trial/assets/vendor/jquery/jquery.min.js:2:81117)
+message
+: 
+"Unexpected token '<', \"\r\n<div style\"... is not valid JSON"
+stack
+: 
+"SyntaxError: Unexpected token '<', \"\r\n<div style\"... is not valid JSON\n    at parse (<anonymous>)\n    at http://localhost/taci-mfg-trial/assets/vendor/jquery/jquery.min.js:2:78358\n    at l (http://localhost/taci-mfg-trial/assets/vendor/jquery/jquery.min.js:2:78475)\n    at XMLHttpRequest.<anonymous> (http://localhost/taci-mfg-trial/assets/vendor/jquery/jquery.min.js:2:81117)"
+[[Prototype]]
+: 
+Error
 options
 : 
 accepts
@@ -96,7 +221,108 @@ xhr
 Object
 xhr
 : 
-{readyState: 4, getResponseHeader: ƒ, getAllResponseHeaders: ƒ, setRequestHeader: ƒ, overrideMimeType: ƒ, …}
+abort
+: 
+ƒ (e)
+always
+: 
+ƒ ()
+catch
+: 
+ƒ (e)
+done
+: 
+ƒ ()
+fail
+: 
+ƒ ()
+getAllResponseHeaders
+: 
+ƒ ()
+getResponseHeader
+: 
+ƒ (e)
+overrideMimeType
+: 
+ƒ (e)
+pipe
+: 
+ƒ ()
+progress
+: 
+ƒ ()
+promise
+: 
+ƒ (e)
+readyState
+: 
+4
+responseText
+: 
+"\r\n<div style=\"border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;\">\r\n\r\n<h4>A PHP Error was encountered</h4>\r\n\r\n<p>Severity: Notice</p>\r\n<p>Message:  Undefined index: WARNING</p>\r\n<p>Filename: core/Log.php</p>\r\n<p>Line Number: 180</p>\r\n\r\n\r\n\t<p>Backtrace:</p>\r\n\t\r\n\t\t\r\n\t\r\n\t\t\r\n\t\r\n\t\t\r\n\t\r\n\t\t\r\n\t\r\n\t\t\r\n\t\t\t<p style=\"margin-left:10px\">\r\n\t\t\tFile: C:\\laragon_new\\www\\taci-mfg-trial\\application\\tms_modules\\Tool_engineering\\controllers\\Tool_bom_engin.php<br />\r\n\t\t\tLine: 81<br />\r\n\t\t\tFunction: log_message\t\t\t</p>\r\n\r\n\t\t\r\n\t\r\n\t\t\r\n\t\r\n\t\t\r\n\t\r\n\t\t\r\n\t\t\t<p style=\"margin-left:10px\">\r\n\t\t\tFile: C:\\laragon_new\\www\\taci-mfg-trial\\index.php<br />\r\n\t\t\tLine: 329<br />\r\n\t\t\tFunction: require_once\t\t\t</p>\r\n\r\n\t\t\r\n\t\r\n\r\n</div>{\"success\":false,\"message\":\"Model tidak dapat di-load. Cek log untuk detail.\"}"
+setRequestHeader
+: 
+ƒ (e,t)
+state
+: 
+ƒ ()
+status
+: 
+200
+statusCode
+: 
+ƒ (e)
+statusText
+: 
+"OK"
+then
+: 
+ƒ (t,n,r)
 [[Prototype]]
 : 
 Object
+[[Prototype]]
+: 
+Object
+constructor
+: 
+ƒ Object()
+hasOwnProperty
+: 
+ƒ hasOwnProperty()
+isPrototypeOf
+: 
+ƒ isPrototypeOf()
+propertyIsEnumerable
+: 
+ƒ propertyIsEnumerable()
+toLocaleString
+: 
+ƒ toLocaleString()
+toString
+: 
+ƒ toString()
+valueOf
+: 
+ƒ valueOf()
+__defineGetter__
+: 
+ƒ __defineGetter__()
+__defineSetter__
+: 
+ƒ __defineSetter__()
+__lookupGetter__
+: 
+ƒ __lookupGetter__()
+__lookupSetter__
+: 
+ƒ __lookupSetter__()
+__proto__
+: 
+(...)
+get __proto__
+: 
+ƒ __proto__()
+set __proto__
+: 
+ƒ __proto__()
