@@ -1,23 +1,4 @@
-jquery.min.js:2 
- 
- POST http://localhost/taci-mfg-trial/Tool_engineering/tool_bom_engin/submit_data 500 (Internal Server Error)
 main.js:59 
-{event: k.Event, xhr: {…}, options: {…}, exc: 'Internal Server Error'}
-event
-: 
-k.Event {type: 'ajaxError', timeStamp: 1765174756659, jQuery341001021647516520341: true, isTrigger: 3, namespace: '', …}
-exc
-: 
-"Internal Server Error"
-options
-: 
-{url: 'http://localhost/taci-mfg-trial/Tool_engineering/tool_bom_engin/submit_data', type: 'POST', isLocal: false, global: true, processData: false, …}
-xhr
-: 
-{readyState: 4, getResponseHeader: ƒ, getAllResponseHeaders: ƒ, setRequestHeader: ƒ, overrideMimeType: ƒ, …}
-[[Prototype]]
-: 
-Object
 -----------------------------
 
 
