@@ -1,5 +1,34 @@
-index:1156  History load failed: parsererror SyntaxError: Unexpected token '﻿', "﻿{"success"... is not valid JSON
-    at parse (<anonymous>)
-    at jquery.min.js:2:78358
-    at l (jquery.min.js:2:78475)
-    at XMLHttpRequest.<anonymous> (jquery.min.js:2:81117) ﻿{"success":true,"data":[{"HISTORY_ID":"41","TD_ID":18,"TD_REVISION":18,"TD_STATUS":1,"TD_EFFECTIVE_DATE":"2025-12-08 10:38:43.850","TD_MODIFIED_DATE":"2025-12-09 08:18:47.090","TD_MODIFIED_BY":"3333333","TD_PRODUCT_ID":0,"TD_PROCESS_ID":0,"TD_DRAWING_NO":"TD_1765165123_TD_1764830638_36300-E4160__2_.jpg","TD_TOOL_NAME":"ANGULAR PIN","TD_MATERIAL_ID":0,"TD_MAKER_ID":null,"MAKER_NAME":"","TD_MIN_QTY":null,"TD_REPLENISH_QTY":null,"TD_PRICE":null,"TD_TOOL_LIFE":null,"TD_DESCRIPTION":null,"PRODUCT_NAME":"CYLINDER","OPERATION_NAME":"COBA","TOOL_NAME":"ANGULAR PIN","MATERIAL_NAME":"tes aja","TOOL_RESOLVED_NAME":"ANGULAR PIN"},{"HISTORY_ID":"40","TD_ID":18,"TD_REVISION":17,"TD_STATUS":1,"TD_EFFECTIVE_DATE":"2025-12-08 10:38:43.850","TD_MODIFIED_DATE":"2025-12-08 10:39:34.503","TD_MODIFIED_BY":"3333333","TD_PRODUCT_ID":0,"TD_PROCESS_ID":0,"TD_DRAWING_NO":"TD_1765165123_TD_1764830638_36300-E4160__2_.jpg","TD_TOOL_NAME":"BAFFLE PLATE","TD_MATERIAL_ID":0,"TD_MAKER_ID":null,"MAKER_NAME":"","TD_MIN_QTY":null,"TD_REPLENISH_QTY":null,"TD_PRICE":null,"TD_TOOL_LIFE":null,"TD_DESCRIPTION":null,"PRODUCT_NAME":"CYLINDER","OPERATION_NAME":"COBA","TOOL_NAME":"BAFFLE PLATE","MATERIAL_NAME":"tes aja","TOOL_RESOLVED_NAME":"BAFFLE PLATE"},{"HISTORY_ID":"39","TD_ID":18,"TD_REVISION":16,"TD_STATUS":1,"TD_EFFECTIVE_DATE":"2025-12-08 10:38:43.850","TD_MODIFIED_DATE":"2025-12-08 10:38:56.023","TD_MODIFIED_BY":"3333333","TD_PRODUCT_ID":0,"TD_PROCESS_ID":0,"TD_DRAWING_NO":"TD_1765165123_TD_1764830638_36300-E4160__2_.jpg","TD_TOOL_NAME":"BAFFLE PLATE","TD_MATERIAL_ID":0,"TD_MAKER_ID":null,"MAKER_NAME":"","TD_MIN_QTY":null,"TD_REPLENISH_QTY":null,"TD_PRICE":null,"TD_TOOL_LIFE":null,"TD_DESCRIPTION":null,"PRODUCT_NAME":"CYLINDER","OPERATION_NAME":"COBA","TOOL_NAME":"BAFFLE PLATE","MATERIAL_NAME":"tes aja","TOOL_RESOLVED_NAME":"BAFFLE PLATE"},{"HISTORY_ID":"38","TD_ID":18,"TD_REVISION":15,"TD_STATUS":1,"TD_EFFECTIVE_DATE":"2025-12-08 10:38:43.850","TD_MODIFIED_DATE":"2025-12-08 10:38:43.863","TD_MODIFIED_BY":"3333333","TD_PRODUCT_ID":0,"TD_PROCESS_ID":0,"TD_DRAWING_NO":"TD_1765165123_TD_1764830638_36300-E4160__2_.jpg","TD_TOOL_NAME":"ANGULAR PIN","TD_MATERIAL_ID":0,"TD_MAKER_ID":null,"MAKER_NAME":"","TD_MIN_QTY":null,"TD_REPLENISH_QTY":null,"TD_PRICE":null,"TD_TOOL_LIFE":null,"TD_DESCRIPTION":null,"PRODUCT_NAME":"CYLINDER","OPERATION_NAME":"COBA","TOOL_NAME":"ANGULAR PIN","MATERIAL_NAME":"tes aja","TOOL_RESOLVED_NAME":"ANGULAR PIN"}]}
+A PHP Error was encountered
+Severity: Warning
+
+Message: Creating default object from empty value
+
+Filename: controllers/Tool_bom_tooling.php
+
+Line Number: 25
+
+Backtrace:
+
+File: C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Tool_engineering\controllers\Tool_bom_tooling.php
+Line: 25
+Function: _error_handler
+
+File: C:\laragon_new\www\taci-mfg-trial\index.php
+Line: 329
+Function: require_once
+
+
+Fatal error: Call to undefined method stdClass::get_all() in C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Tool_engineering\controllers\Tool_bom_tooling.php on line 33
+A PHP Error was encountered
+Severity: Error
+
+Message: Call to undefined method stdClass::get_all()
+
+Filename: controllers/Tool_bom_tooling.php
+
+Line Number: 33
+
+Backtrace:
+
+ERROR - 2025-12-09 08:23:39 --> Severity: Warning --> Creating default object from empty value C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Tool_engineering\controllers\Tool_bom_tooling.php 25
+ERROR - 2025-12-09 08:23:39 --> Severity: Error --> Call to undefined method stdClass::get_all() C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Tool_engineering\controllers\Tool_bom_tooling.php 33
