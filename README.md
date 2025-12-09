@@ -1,16 +1,19 @@
-Revision Detail
-×
-Product	:
-Tool Name	: ANGULAR PIN
-Tool Drawing No.	: TD_1765165123_TD_1764830638_36300-E4160__2_.jpg
-Revision	: 26
-Maker	:
-Min Quantity	: 0
-Replenish Quantity	: 0
-Process	:
-Price	: 0.00
-Standard Tool Life	: 0
-Description	:
-Status	: Active
-Effective Date	: 2025-12-08 10:38:43.850
-Material	:
+SELECT TOP (1000) [TD_ID]
+      ,[TD_PRODUCT_ID]
+      ,[TD_PROCESS_ID]
+      ,[TD_DRAWING_NO]
+      ,[TD_TOOL_NAME]
+      ,[TD_REVISION]
+      ,[TD_STATUS]
+      ,[TD_EFFECTIVE_DATE]
+      ,[TD_MODIFIED_DATE]
+      ,[TD_MODIFIED_BY]
+      ,[TD_MATERIAL_ID]
+      ,[TD_MAKER_ID]
+      ,[TD_MIN_QTY]
+      ,[TD_REPLENISH_QTY]
+      ,[TD_PRICE]
+      ,[TD_TOOL_LIFE]
+      ,[TD_DESCRIPTION]
+      ,[TD_SEQUENCE]
+  FROM [TMS_DB].[dbo].[TMS_TC_TOOL_DRAWING_ENGIN]
