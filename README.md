@@ -3,495 +3,329 @@ ID,	Tool Tag,	Product,	Tool Name,	Tool Drawing No.,		Tool ID,	Status(New,Allocat
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?= $head; ?>
     <link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('assets/vendor/datatables/jquery.dataTables.min.css'); ?>" rel="stylesheet">
     <style>
-        .table td,
-        .table th {
-            color: #000 !important;
-            padding: 0.35rem 0.4rem !important;
-            font-size: 0.85rem;
-        }
-
-        .table-fixed {
-            table-layout: fixed;
-        }
-
-        .table-fixed th, .table-fixed td {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .label-required::after {
-            content: " *";
-            color: #dc3545;
-            font-weight: 600;
-        }
-
-        .is-invalid+.invalid-feedback {
-            display: block;
-        }
-
-        .table .btn-sm {
-            padding: 0.25rem 0.4rem;
-            font-size: 0.7rem;
-        }
-
-        .action-buttons {
+        html, body, #content-wrapper { color: #000; }
+        .card, .table, label, .form-text, .dataTables_wrapper { color: #000; }
+        .table td, .table th { padding: 0.4rem 0.45rem !important; font-size: 0.88rem; }
+        .action-buttons { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+        .small-muted { font-size: 0.82rem; color: #6c757d; }
+        .info-label { font-weight: 600; color: #495057; }
+        .info-value { 
+            color: #212529; 
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            background-color: #f8f9fa;
+            min-height: 38px;
             display: flex;
-            justify-content: center;
-            gap: 4px;
-            flex-wrap: wrap;
+            align-items: center;
         }
     </style>
 </head>
-
 <body id="page-top">
-    <?= isset($loading) ? $loading : ''; ?>
-    <div id="wrapper">
-        <?= isset($sidebar) ? $sidebar : ''; ?>
-        <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content">
-                <?= isset($topbar) ? $topbar : ''; ?>
+<?= isset($loading) ? $loading : ''; ?>
+<div id="wrapper">
+    <?= isset($sidebar) ? $sidebar : ''; ?>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <?= isset($topbar) ? $topbar : ''; ?>
 
-                <div class="container-fluid" id="container-wrapper">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h4 class="m-0 font-weight-bold text-primary">Tool BOM Engineering</h4>
-                            <button id="btn-new" class="btn btn-primary">New Tool BOM</button>
+            <div class="container-fluid" id="container-wrapper">
+                <div class="card mb-3">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <div>
+                            <h4 class="m-0 font-weight-bold text-primary">Detail Tool BOM</h4>
+                            <div class="small text-muted">ID: <?= htmlspecialchars($bom['ID']); ?></div>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                            <table id="table-tool-bom-engin" class="table table-bordered table-striped table-fixed w-100 text-center">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Tool BOM</th>
-                                        <th>Description</th>
-                                        <th>Product</th>
-                                        <th>Process</th>
-                                        <th>Machine Group</th>
-                                        <th>Revision</th>
-                                        <th>Status</th>
-                                        <th>Modified By</th>
-                                        <th>Modified Date</th>
-                                        <th>ACTION</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($list_data as $row): 
-                                        // Resolve product name
-                                        $product_name = '';
-                                        if (isset($row['PRODUCT_ID']) && $row['PRODUCT_ID'] > 0) {
-                                            foreach ($products as $p) {
-                                                if ((int)$p['PRODUCT_ID'] === (int)$row['PRODUCT_ID']) {
-                                                    $product_name = $p['PRODUCT_NAME'];
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        if ($product_name === '' && isset($row['PRODUCT'])) {
-                                            $product_name = $row['PRODUCT'];
-                                        }
-                                        
-                                        // Resolve process name
-                                        $process_name = '';
-                                        if (isset($row['PROCESS_ID']) && $row['PROCESS_ID'] > 0) {
-                                            foreach ($operations as $o) {
-                                                if ((int)$o['OPERATION_ID'] === (int)$row['PROCESS_ID']) {
-                                                    $process_name = $o['OPERATION_NAME'];
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        
-                                        // Resolve machine group name
-                                        $machine_group_name = '';
-                                        if (isset($row['MACHINE_GROUP_ID']) && $row['MACHINE_GROUP_ID'] > 0) {
-                                            foreach ($machine_groups as $mg) {
-                                                if ((int)$mg['MACHINE_ID'] === (int)$row['MACHINE_GROUP_ID']) {
-                                                    $machine_group_name = $mg['MACHINE_NAME'];
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        if ($machine_group_name === '' && isset($row['MACHINE_GROUP'])) {
-                                            $machine_group_name = $row['MACHINE_GROUP'];
-                                        }
-                                        
-                                        // Status badge
-                                        $status_badge = '';
-                                        if (isset($row['STATUS'])) {
-                                            $st = strtoupper((string)$row['STATUS']);
-                                            if ($st === 'ACTIVE' || $st === '1') {
-                                                $status_badge = '<span class="badge badge-success">Active</span>';
-                                            } elseif ($st === 'PENDING' || $st === '2') {
-                                                $status_badge = '<span class="badge badge-warning">Pending</span>';
-                                            } else {
-                                                $status_badge = '<span class="badge badge-secondary">Inactive</span>';
-                                            }
-                                        }
-                                    ?>
-                                        <tr>
-                                            <td><?= htmlspecialchars($row['ID'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                            <td>
-                                                <a href="<?= base_url('Tool_engineering/tool_bom_engin/detail_page/' . (int)$row['ID']); ?>" 
-                                                   class="text-primary" 
-                                                   style="text-decoration: underline; cursor: pointer;"
-                                                   title="View Detail">
-                                                    <?= htmlspecialchars($row['TOOL_BOM'], ENT_QUOTES, 'UTF-8'); ?>
-                                                </a>
-                                            </td>
-                                            <td><?= htmlspecialchars($row['DESCRIPTION'] ?: '', ENT_QUOTES, 'UTF-8'); ?></td>
-                                            <td><?= htmlspecialchars($product_name, ENT_QUOTES, 'UTF-8'); ?></td>
-                                            <td><?= htmlspecialchars($process_name, ENT_QUOTES, 'UTF-8'); ?></td>
-                                            <td><?= htmlspecialchars($machine_group_name, ENT_QUOTES, 'UTF-8'); ?></td>
-                                            <td><?= htmlspecialchars($row['REVISION'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                            <td><?= $status_badge; ?></td>
-                                            <td><?= htmlspecialchars($row['MODIFIED_BY'] ?: '', ENT_QUOTES, 'UTF-8'); ?></td>
-                                            <td><?= htmlspecialchars($row['MODIFIED_DATE'] ?: '', ENT_QUOTES, 'UTF-8'); ?></td>
-                                            <td>
-                                                <div class="action-buttons">
-                                                    <!-- <button class="btn btn-sm btn-warning btn-edit" 
-                                                            data-edit='<?= htmlspecialchars(json_encode($row), ENT_QUOTES, 'UTF-8'); ?>'
-                                                            title="Edit">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button> -->
-                                                    <a class="btn btn-sm btn-info" 
-                                                       href="<?= base_url('Tool_engineering/tool_bom_engin/edit_page/' . (int)$row['ID']); ?>"
-                                                       title="Edit Page">
-                                                        <i class="fas fa-external-link-alt"></i>
-                                                    </a>
-                                                    <button class="btn btn-sm btn-danger btn-delete" 
-                                                            data-id="<?= (int)$row['ID']; ?>"
-                                                            title="Delete">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                            </div>
+                        <div>
+                            <a href="<?= base_url('tool_engineering/tool_bom_tooling'); ?>" class="btn btn-sm btn-outline-primary shadow-sm">
+                                <i class="fa fa-arrow-left"></i> Back
+                            </a>
                         </div>
                     </div>
+                    <div class="card-body">
+                         <!-- Trial BOM Checkbox -->
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <div class="form-check d-flex align-items-center">
+                                        
+                                        <label class="form-check-label mb-0 mr-4 mt-1" for="isTrialBom">
+                                            <strong>Trial BOM</strong>
+                                        </label>
 
-                <!-- Modal Form -->
-                <div class="modal fade" id="modalForm" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Tool BOM Engineering Form</h5>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <input
+                                            class="form-check-input position-static"
+                                            type="checkbox"
+                                            name="IS_TRIAL_BOM"
+                                            id="isTrialBom"
+                                            value="1"
+                                            disabled
+                                            <?= (isset($bom['IS_TRIAL_BOM']) && ((int)$bom['IS_TRIAL_BOM'] === 1 || $bom['IS_TRIAL_BOM'] === true)) ? 'checked' : ''; ?>
+                                        >
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <form id="formToolBOM" method="post" action="<?= base_url('Tool_engineering/tool_bom_engin/submit_data'); ?>" enctype="multipart/form-data">
-                                    <input type="hidden" name="action" value="">
-                                    <input type="hidden" name="ID" value="">
 
-                                    <!-- Trial BOM Checkbox -->
-                                   <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <div class="d-flex align-items-center">
-                                                <label class="mb-0 mr-2" for="isTrialBomModal">
-                                                    <strong>Trial BOM</strong>
-                                                </label>
-                                                <input 
-                                                    type="checkbox" 
-                                                    name="IS_TRIAL_BOM" 
-                                                    id="isTrialBomModal" 
-                                                    value="1"
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label class="label-required">Product</label>
-                                            <select name="PRODUCT_ID" class="form-control">
-                                                <option value="">-- Select Product --</option>
-                                                <?php foreach ($products as $p): ?>
-                                                    <option value="<?= (int)$p['PRODUCT_ID']; ?>"><?= htmlspecialchars($p['PRODUCT_NAME'], ENT_QUOTES, 'UTF-8'); ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label class="label-required">Tool BOM</label>
-                                            <input type="text" name="TOOL_BOM" class="form-control" required>
-                                            <div class="invalid-feedback">Tool BOM wajib diisi.</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label>Revision</label>
-                                            <input type="number" name="REVISION" class="form-control" value="0">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label>Process</label>
-                                            <select name="PROCESS_ID" class="form-control">
-                                                <option value="">-- Select Process --</option>
-                                                <?php foreach ($operations as $o): ?>
-                                                    <option value="<?= (int)$o['OPERATION_ID']; ?>"><?= htmlspecialchars($o['OPERATION_NAME'], ENT_QUOTES, 'UTF-8'); ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label>Machine Group</label>
-                                            <select name="MACHINE_GROUP_ID" class="form-control">
-                                                <option value="">-- Select Machine Group --</option>
-                                                <?php foreach ($machine_groups as $mg): ?>
-                                                    <option value="<?= (int)$mg['MACHINE_ID']; ?>"><?= htmlspecialchars($mg['MACHINE_NAME'], ENT_QUOTES, 'UTF-8'); ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label>Description</label>
-                                            <textarea name="DESCRIPTION" class="form-control" rows="3"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label>Status</label>
-                                            <select name="STATUS" class="form-control">
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
-                                                <option value="2">Pending</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label>Effective Date</label>
-                                            <input type="date" name="EFFECTIVE_DATE" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label>Change Summary</label>
-                                            <textarea name="CHANGE_SUMMARY" class="form-control" rows="3"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label>Drawing</label>
-                                            <input type="file" name="DRAWING_FILE" class="form-control" accept="*">
-                                            <small class="form-text text-muted">Upload file gambar untuk drawing.</small>
-                                        </div>
-                                    </div>
-                                </form>
+                        <!-- BOM Information (Read-only) -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="info-label">Product</label>
+                                <div class="info-value">
+                                    <?php
+                                    $product_name = '';
+                                    if (isset($bom['PRODUCT_ID']) && (int)$bom['PRODUCT_ID'] > 0) {
+                                        foreach ($products as $p) {
+                                            if ((int)$p['PRODUCT_ID'] === (int)$bom['PRODUCT_ID']) {
+                                                $product_name = $p['PRODUCT_NAME'];
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if ($product_name === '' && isset($bom['PRODUCT'])) {
+                                        $product_name = $bom['PRODUCT'];
+                                    }
+                                    echo htmlspecialchars($product_name !== '' ? $product_name : '-', ENT_QUOTES, 'UTF-8');
+                                    ?>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button id="btn-submit" class="btn btn-primary">Submit</button>
+                            <div class="form-group col-md-6">
+                                <label class="info-label">Tool BOM</label>
+                                <div class="info-value"><?= htmlspecialchars(isset($bom['TOOL_BOM']) ? $bom['TOOL_BOM'] : '-', ENT_QUOTES, 'UTF-8'); ?></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label class="info-label">Revision</label>
+                                <div class="info-value"><?= htmlspecialchars(isset($bom['REVISION']) ? $bom['REVISION'] : '0', ENT_QUOTES, 'UTF-8'); ?></div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="info-label">Process</label>
+                                <div class="info-value">
+                                    <?php
+                                    $process_name = '';
+                                    if (isset($bom['PROCESS_ID']) && (int)$bom['PROCESS_ID'] > 0) {
+                                        foreach ($operations as $o) {
+                                            if ((int)$o['OPERATION_ID'] === (int)$bom['PROCESS_ID']) {
+                                                $process_name = $o['OPERATION_NAME'];
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    echo htmlspecialchars($process_name !== '' ? $process_name : '-', ENT_QUOTES, 'UTF-8');
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="info-label">Machine Group</label>
+                                <div class="info-value">
+                                    <?php
+                                    $machine_group_name = '';
+                                    if (isset($bom['MACHINE_GROUP_ID']) && (int)$bom['MACHINE_GROUP_ID'] > 0) {
+                                        foreach ($machine_groups as $mg) {
+                                            if ((int)$mg['MACHINE_ID'] === (int)$bom['MACHINE_GROUP_ID']) {
+                                                $machine_group_name = $mg['MACHINE_NAME'];
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if ($machine_group_name === '' && isset($bom['MACHINE_GROUP'])) {
+                                        $machine_group_name = $bom['MACHINE_GROUP'];
+                                    }
+                                    echo htmlspecialchars($machine_group_name !== '' ? $machine_group_name : '-', ENT_QUOTES, 'UTF-8');
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="info-label">Description</label>
+                                <div class="info-value"><?= htmlspecialchars(isset($bom['DESCRIPTION']) && $bom['DESCRIPTION'] !== '' ? $bom['DESCRIPTION'] : '-', ENT_QUOTES, 'UTF-8'); ?></div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="info-label">Status</label>
+                                <div class="info-value">
+                                    <?php
+                                    $statusVal = 1;
+                                    if (isset($bom['STATUS'])) {
+                                        $st = strtoupper((string)$bom['STATUS']);
+                                        if ($st === 'INACTIVE' || $st === '0') $statusVal = 0;
+                                        elseif ($st === 'PENDING' || $st === '2') $statusVal = 2;
+                                    }
+                                    $statusText = 'Active';
+                                    $statusBadge = '<span class="badge badge-success">Active</span>';
+                                    if ($statusVal === 0) {
+                                        $statusText = 'Inactive';
+                                        $statusBadge = '<span class="badge badge-secondary">Inactive</span>';
+                                    } elseif ($statusVal === 2) {
+                                        $statusText = 'Pending';
+                                        $statusBadge = '<span class="badge badge-warning">Pending</span>';
+                                    }
+                                    echo $statusBadge;
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="info-label">Effective Date</label>
+                                <div class="info-value">
+                                    <?php
+                                    $eff = isset($bom['EFFECTIVE_DATE']) ? $bom['EFFECTIVE_DATE'] : '';
+                                    if ($eff !== '') {
+                                        // Format date if needed
+                                        echo htmlspecialchars(substr($eff, 0, 10), ENT_QUOTES, 'UTF-8');
+                                    } else {
+                                        echo '-';
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="info-label">Change Summary</label>
+                                <div class="info-value"><?= htmlspecialchars(isset($bom['CHANGE_SUMMARY']) && $bom['CHANGE_SUMMARY'] !== '' ? $bom['CHANGE_SUMMARY'] : '-', ENT_QUOTES, 'UTF-8'); ?></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="info-label">Drawing</label>
+                                <div class="info-value">
+                                    <?php if (!empty($bom['DRAWING'])): ?>
+                                        <a href="<?= base_url('tool_engineering/img/' . htmlspecialchars($bom['DRAWING'], ENT_QUOTES, 'UTF-8')); ?>" target="_blank" class="text-primary">
+                                            <?= htmlspecialchars($bom['DRAWING'], ENT_QUOTES, 'UTF-8'); ?>
+                                        </a>
+                                    <?php else: ?>
+                                        -
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="info-label">Modified Date</label>
+                                <div class="info-value">
+                                    <?php
+                                    $modified = isset($bom['MODIFIED_DATE']) ? $bom['MODIFIED_DATE'] : '';
+                                    echo htmlspecialchars($modified !== '' ? $modified : '-', ENT_QUOTES, 'UTF-8');
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="info-label">Modified By</label>
+                                <div class="info-value"><?= htmlspecialchars(isset($bom['MODIFIED_BY']) && $bom['MODIFIED_BY'] !== '' ? $bom['MODIFIED_BY'] : '-', ENT_QUOTES, 'UTF-8'); ?></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <?= isset($modal_logout) ? $modal_logout : ''; ?>
+                <!-- Additional Information (Read-only) -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="m-0 font-weight-bold text-primary">Additional Information (Tool Drawing Engin)</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="table-additional" class="table table-bordered table-striped w-100 text-center">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>ID</th>
+                                        <th>Drawing</th>
+                                        <th>Tool Drawing No.</th>
+                                        <th>Tool Name</th>
+                                        <th>Revision</th>
+                                        <th>Status</th>
+                                        <th>Quantity</th>
+                                        <th>Std. Quantity</th>
+                                        <th>Sequence</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (!empty($additional_info)): ?>
+                                        <?php $no = 1; foreach ($additional_info as $row): 
+                                            $statusBadge = '<span class="badge badge-success">Active</span>';
+                                            if (isset($row['TD_STATUS'])) {
+                                                $rst = (int)$row['TD_STATUS'];
+                                                if ($rst === 0) $statusBadge = '<span class="badge badge-secondary">Inactive</span>';
+                                                elseif ($rst === 2) $statusBadge = '<span class="badge badge-warning">Pending</span>';
+                                            }
+                                            
+                                            // Resolve tool name
+                                            $tool_display_name = isset($row['TD_TOOL_NAME']) ? $row['TD_TOOL_NAME'] : '';
+                                            if (is_numeric($tool_display_name)) {
+                                                foreach ($tools as $t) {
+                                                    if ((int)$t['TOOL_ID'] === (int)$tool_display_name) {
+                                                        $tool_display_name = $t['TOOL_NAME'];
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                        ?>
+                                            <tr>
+                                                <td><?= $no++; ?></td>
+                                                <td><?= htmlspecialchars($row['TD_ID']); ?></td>
+                                                <td>
+                                                    <?php if (!empty($row['TD_DRAWING_NO'])): ?>
+                                                        <a href="<?= base_url('tool_engineering/img/' . htmlspecialchars($row['TD_DRAWING_NO'], ENT_QUOTES, 'UTF-8')); ?>" target="_blank" class="text-primary">
+                                                            <?= htmlspecialchars($row['TD_DRAWING_NO'], ENT_QUOTES, 'UTF-8'); ?>
+                                                        </a>
+                                                    <?php else: ?>
+                                                        -
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td><?= htmlspecialchars(isset($row['TD_DRAWING_NO']) ? $row['TD_DRAWING_NO'] : '-', ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?= htmlspecialchars($tool_display_name !== '' ? $tool_display_name : '-', ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?= htmlspecialchars(isset($row['TD_REVISION']) ? $row['TD_REVISION'] : '0', ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?= $statusBadge; ?></td>
+                                                <td><?= htmlspecialchars(isset($row['TD_MIN_QTY']) && $row['TD_MIN_QTY'] !== '' ? $row['TD_MIN_QTY'] : '-', ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?= htmlspecialchars(isset($row['TD_REPLENISH_QTY']) && $row['TD_REPLENISH_QTY'] !== '' ? $row['TD_REPLENISH_QTY'] : '-', ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?= htmlspecialchars(isset($row['TD_SEQUENCE']) && $row['TD_SEQUENCE'] !== '' ? $row['TD_SEQUENCE'] : '-', ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?= htmlspecialchars(isset($row['TD_DESCRIPTION']) && $row['TD_DESCRIPTION'] !== '' ? $row['TD_DESCRIPTION'] : '-', ENT_QUOTES, 'UTF-8'); ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="11" class="text-center text-muted">No additional information available.</td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <?= isset($footer) ? $footer : ''; ?>
+            <?= isset($modal_logout) ? $modal_logout : ''; ?>
         </div>
+        <?= isset($footer) ? $footer : ''; ?>
     </div>
+</div>
 
-    <?= isset($foot) ? $foot : ''; ?>
-    <script src="<?= base_url('assets/vendor/datatables/jquery.dataTables.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.js'); ?>"></script>
-
-    <script>
-        (function($) {
-            $(function() {
-                var table = $('#table-tool-bom-engin').DataTable({
-                    lengthMenu: [
-                        [10, 25, 50, -1],
-                        [10, 25, 50, "ALL"]
-                    ],
-                    pageLength: 25,
-                    order: [
-                        [0, 'desc']
-                    ],
-                    autoWidth: false,
-                    scrollX: false,
-                    columnDefs: [
-                        { orderable: false, targets: [10] },
-                        { width: '50px', targets: 0 },      // ID
-                        { width: '120px', targets: 1 },     // Tool BOM
-                        { width: '150px', targets: 2 },     // Description
-                        { width: '100px', targets: 3 },     // Product
-                        { width: '100px', targets: 4 },     // Process
-                        { width: '120px', targets: 5 },     // Machine Group
-                        { width: '70px', targets: 6 },      // Revision
-                        { width: '80px', targets: 7 },      // Status
-                        { width: '100px', targets: 8 },     // Modified By
-                        { width: '120px', targets: 9 },     // Modified Date
-                        { width: '100px', targets: 10 }     // ACTION
-                    ]
-                });
-
-                if (typeof _search_data === 'function') {
-                    _search_data(table, '#table-tool-bom-engin', false, false);
-                }
-
-                // New
-                $('#btn-new').on('click', function() {
-                    $('#formToolBOM')[0].reset();
-                    $('input[name="action"]').val('ADD');
-                    $('input[name="ID"]').val('');
-                    $('[name="TOOL_BOM"]').removeClass('is-invalid');
-                    $('[name="REVISION"]').val(0);
-                    $('[name="STATUS"]').val(1);
-                    $('[name="IS_TRIAL_BOM"]').prop('checked', false);
-                    // Set default effective date to today
-                    var today = new Date().toISOString().split('T')[0];
-                    $('[name="EFFECTIVE_DATE"]').val(today);
-                    $('#modalForm').modal('show');
-                });
-
-                // Edit
-                $('#table-tool-bom-engin').on('click', '.btn-edit', function() {
-                    var raw = $(this).data('edit');
-                    var d = raw;
-                    if (!d) {
-                        toastr.error('Data edit tidak valid.');
-                        return;
-                    }
-                    $('#formToolBOM')[0].reset();
-                    $('input[name="action"]').val('EDIT');
-                    $('input[name="ID"]').val(d.ID);
-                    $('[name="TOOL_BOM"]').val(d.TOOL_BOM || '');
-                    $('[name="DESCRIPTION"]').val(d.DESCRIPTION || '');
-                    $('[name="PRODUCT_ID"]').val(d.PRODUCT_ID || '');
-                    $('[name="PROCESS_ID"]').val(d.PROCESS_ID || '');
-                    $('[name="MACHINE_GROUP_ID"]').val(d.MACHINE_GROUP_ID || '');
-                    $('[name="REVISION"]').val(d.REVISION || 0);
-                    $('[name="STATUS"]').val(d.STATUS !== undefined ? d.STATUS : 1);
-                    $('[name="EFFECTIVE_DATE"]').val(d.EFFECTIVE_DATE || '');
-                    $('[name="CHANGE_SUMMARY"]').val(d.CHANGE_SUMMARY || '');
-                    // Handle IS_TRIAL_BOM checkbox
-                    if (d.IS_TRIAL_BOM !== undefined && (d.IS_TRIAL_BOM === 1 || d.IS_TRIAL_BOM === true || d.IS_TRIAL_BOM === '1')) {
-                        $('[name="IS_TRIAL_BOM"]').prop('checked', true);
-                    } else {
-                        $('[name="IS_TRIAL_BOM"]').prop('checked', false);
-                    }
-                    $('[name="TOOL_BOM"]').removeClass('is-invalid');
-                    $('#modalForm').modal('show');
-                });
-
-                // Submit
-                $('#btn-submit').on('click', function(e) {
-                    e.preventDefault();
-                    $('#formToolBOM').submit();
-                });
-
-                $('#formToolBOM').on('submit', function(e) {
-                    e.preventDefault();
-                    var toolBom = $.trim($('[name="TOOL_BOM"]').val());
-                    
-                    var isValid = true;
-                    if (toolBom === '') {
-                        $('[name="TOOL_BOM"]').addClass('is-invalid');
-                        isValid = false;
-                    } else {
-                        $('[name="TOOL_BOM"]').removeClass('is-invalid');
-                    }
-
-                    if (!isValid) return;
-
-                    var formEl = $(this)[0];
-                    var fd = new FormData(formEl);
-                    
-                    $.ajax({
-                        url: $(this).attr('action'),
-                        type: 'POST',
-                        data: fd,
-                        dataType: 'json',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        timeout: 30000
-                    }).done(function(res) {
-                        if (typeof res === 'object' && res !== null && res.hasOwnProperty('success')) {
-                            if (res.success === true) {
-                                toastr.success(res.message || 'Berhasil disimpan');
-                                $('#modalForm').modal('hide');
-                                setTimeout(function() {
-                                    location.reload();
-                                }, 600);
-                            } else {
-                                toastr.warning(res.message || 'Gagal menyimpan data');
-                            }
-                        } else {
-                            toastr.error('Response tidak valid dari server');
-                        }
-                    }).fail(function(xhr, status, error) {
-                        var msg = 'Terjadi kesalahan pada server';
-                        if (status === 'timeout') msg = 'Request timeout';
-                        else if (status === 'error') msg = 'HTTP Error ' + xhr.status;
-                        else if (status === 'parsererror') {
-                            msg = 'Response bukan JSON valid. Raw response: ' + xhr.responseText.substring(0, 200);
-                        }
-                        toastr.error(msg);
-                    });
-                });
-
-                // Delete
-                $('#table-tool-bom-engin').on('click', '.btn-delete', function() {
-                    var id = Number($(this).data('id')) || 0;
-                    if (id <= 0) {
-                        toastr.error('ID tidak valid');
-                        return;
-                    }
-
-                    if (!confirm('Apakah Anda yakin ingin menghapus data ini?')) {
-                        return;
-                    }
-
-                    $.ajax({
-                        url: '<?= base_url("Tool_engineering/tool_bom_engin/delete_data"); ?>',
-                        type: 'POST',
-                        dataType: 'json',
-                        data: { ID: id }
-                    }).done(function(res) {
-                        if (res && res.success) {
-                            toastr.success(res.message || 'Data berhasil dihapus');
-                            setTimeout(function() {
-                                location.reload();
-                            }, 600);
-                        } else {
-                            toastr.warning(res.message || 'Gagal menghapus data');
-                        }
-                    }).fail(function(xhr, status, err) {
-                        toastr.error('Gagal menghapus data');
-                        console.error('Delete failed:', status, err);
-                    });
-                });
-            });
-        })(jQuery);
-    </script>
+<?= isset($foot) ? $foot : ''; ?>
+<script src="<?= base_url('assets/vendor/datatables/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.js'); ?>"></script>
+<script>
+(function($){
+    $(function(){
+        var table = $('#table-additional').DataTable({
+            lengthMenu: [[10,25,50,-1],[10,25,50,"ALL"]],
+            pageLength: 10,
+            order: [[1,'desc']],
+            autoWidth: false,
+            columnDefs: [
+                { orderable:false, targets:[0] },
+                { width: '50px', targets:0 },
+                { width: '70px', targets:1 }
+            ]
+        });
+    });
+})(jQuery);
+</script>
 </body>
-
 </html>
