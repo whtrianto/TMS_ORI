@@ -1,3 +1,10 @@
+tambahkn informasi dibawahnya yg isinya
+Shared Tool	
+ID	Product	Tool BOM
+koneksinya yg sama dari product untuk menampilkan tool bom. data diambil dari FROM [TMS_DB].[dbo].[TMS_TC_TOOL_BOM_ENGIN] yg isinya [ID]
+      ,[TOOL_BOM]
+      ,[PRODUCT]
+
 
   SELECT TOP (1000) [STORAGE_LOCATION_ID]
       ,[STORAGE_LOCATION_NAME]
