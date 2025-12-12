@@ -1,1 +1,3 @@
-DataTables warning: table id=table-tool-draw-sql - Invalid JSON response. For more information about this error, please see http://datatables.net/tn/1
+ALTER TABLE [dbo].[TMS_TOOL_MASTER_LIST_PARTS]  WITH CHECK ADD  CONSTRAINT [FK_TMS_TOOL_MASTER_LIST_PARTS_MS_PARTS] FOREIGN KEY([TMLP_PART_ID])
+REFERENCES [dbo].[MS_PARTS] ([PART_ID])
+GO
