@@ -1,5 +1,4 @@
-tapi kenapa ini masih ke http://localhost/taci-mfg-trial/Tool_engineering/tool_draw_engin/serve_file?id=16500-E8790-A_SKE.pdf&type=drawing bukan mengarah ke folder Attachment_TMS\Drawing
-
+ketika di klik masih ke sini http://localhost/taci-mfg-trial/Tool_engineering/tool_draw_engin/serve_file?id=Screenshot+%282%29.png&type=drawing dan jadi 404 not found
 
 
 
