@@ -1,5 +1,22 @@
-ERROR - 2025-12-15 11:07:31 --> Severity: Notice --> Undefined property: CI::$db_tms C:\laragon_new\www\taci-mfg-trial\application\third_party\MX\Controller.php 59
-ERROR - 2025-12-15 11:07:31 --> Severity: Error --> Call to a member function query() on null C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Tool_engineering\controllers\Tool_draw_engin.php 690
+nomor 1 isi tabelnya
+MLR_DRAWING	varchar	50	YES
+MLR_SKETCH	varchar	50	YES
+
+nomor 2
+kosong/gak ada apa-apa
+
+nomor 3
+73443	Screenshot (2).png	NULL	18	NULL	Contains special chars (might be encoded)	NULL
+73441	36300-E4160.jpg	NULL	15	NULL	Contains special chars (might be encoded)	NULL
+73440	16500-E8790-A_SKE.pdf	NULL	21	NULL	Contains special chars (might be encoded)	NULL
+73438	16500-E8790-A_SKE.pdf	NULL	21	NULL	Contains special chars (might be encoded)	NULL
+73437	311-073-011 (011A & 011B).jpg	NULL	29	NULL	Contains special chars (might be encoded)	NULL
+
+nomor 4
+sysdiagrams	definition	varbinary	-1
+
+nomor 5
+sysdiagrams	definition	varbinary	-1
 
 
 
