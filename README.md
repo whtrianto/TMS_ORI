@@ -1,4 +1,4 @@
-nomor 1 isi tabelnya
+[nomor 1 isi tabelnya
 MLR_DRAWING	varchar	50	YES
 MLR_SKETCH	varchar	50	YES
 
@@ -16,7 +16,7 @@ nomor 4
 sysdiagrams	definition	varbinary	-1
 
 nomor 5
-sysdiagrams	definition	varbinary	-1
+sysdiagrams	definition	varbinary	-1](http://localhost/taci-mfg-trial/Tool_engineering/tool_draw_engin/serve_file?id=Screenshot+%282%29.png&type=drawing)
 
 
 
