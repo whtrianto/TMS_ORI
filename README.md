@@ -1,4 +1,4 @@
-ketika di klik masih ke sini http://localhost/taci-mfg-trial/Tool_engineering/tool_draw_engin/serve_file?id=Screenshot+%282%29.png&type=drawing dan jadi 404 not found
+C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Attachment_TMS
 
 
 
