@@ -1,7 +1,40 @@
-tool_draw_engin:1 
- Uncaught TypeError: Cannot read properties of null (reading 'style')
-    at HTMLImageElement.onerror (tool_draw_engin:1:52)
-onerror	@	tool_draw_engin:1
+A PHP Error was encountered
+Severity: Warning
+
+Message: ini_set(): A session is active. You cannot change the session module's ini settings at this time
+
+Filename: Session/Session.php
+
+Line Number: 314
+
+Backtrace:
+
+File: C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Attachment_TMS\controllers\Attachment_TMS.php
+Line: 24
+Function: __construct
+
+File: C:\laragon_new\www\taci-mfg-trial\index.php
+Line: 329
+Function: require_once
+
+A PHP Error was encountered
+Severity: Notice
+
+Message: A session had already been started - ignoring session_start()
+
+Filename: Session/Session.php
+
+Line Number: 143
+
+Backtrace:
+
+File: C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Attachment_TMS\controllers\Attachment_TMS.php
+Line: 24
+Function: __construct
+
+File: C:\laragon_new\www\taci-mfg-trial\index.php
+Line: 329
+Function: require_once
 
 
 
