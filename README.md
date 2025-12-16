@@ -1,25 +1,5 @@
-Screenshot+%282%29.png:1   GET http://localhost/taci-mfg-trial/application/tms_modules/Attachment_TMS/Drawing/73443/0/Screenshot+%282%29.png 403 (Forbidden)
-Image
-(anonymous) @ jquery.min.js:2
-_ @ jquery.min.js:2
-html @ jquery.min.js:2
-renderFileFromUrl @ index:959
-(anonymous) @ index:970
-c @ jquery.min.js:2
-fireWith @ jquery.min.js:2
-l @ jquery.min.js:2
-(anonymous) @ jquery.min.js:2
-XMLHttpRequest.send
-send @ jquery.min.js:2
-ajax @ jquery.min.js:2
-(anonymous) @ index:898
-dispatch @ jquery.min.js:2
-v.handle @ jquery.min.js:2
-main.js:81 Error message: Uncaught TypeError: Cannot read properties of null (reading 'style')
-URL: http://localhost/taci-mfg-trial/tool_engineering/tool_draw_engin/index
-Line Number: 1
-index:1  Uncaught TypeError: Cannot read properties of null (reading 'style')
-    at HTMLImageElement.onerror (index:1:52)
+fungsion ini gak berhasil membaca isi folder yg ada http://localhost/taci-mfg-trial/Tool_engineering/tool_draw_engin/serve_file_by_mlr?mlr_id=73443&mlr_rev=0&type=drawing
+saya ingin jadinya kek dini contohnya http://localhost/taci-mfg-trial/Attachment_TMS/Drawing/4964/(filename)
 
 
 
