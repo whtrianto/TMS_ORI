@@ -1,4 +1,4 @@
-ini tempat penyimpanannya malah di C:\laragon_new\www\taci-mfg-trial\Attachment_TMS saya inginnya di C:\laragon_new\www\taci-mfg-trial\application\tms_modules\Attachment_TMS\Drawing
+coba buat ulang isinya Tool Drawing No.,	Tool Name,	Min Quantity,	Replenish Quantity,	Maker,	Price,	Description,	Effective Date,	Material,	Standard Tool Life , Action. analisa database
 
 
 saya ingin ubah untuk data user ngambil di sini 
