@@ -1,31 +1,5 @@
-buat file baru untuk detailnya ketika klik isian tool drawing no. maka akan muncul data sebagai berikut.
-Product	:		FC 10SRE13 FOX/DV5
-Tool Name	:		ANGULAR PIN
-Tool Drawing No.	:		59400-E7350
-Revision	:		0
-Maker	:		
-Min Quantity	:		
-1
-Replenish Quantity	:		
-1
-Process	:		DIE CASTING
-Price	:		
-0
-Standard Tool Life	:		
-500000
-Standard Rework	:		
-Description	:		
-Status	:		Active
-Effective Date	:		11/11/2019
-Change Summary	:	 	
-	Additional Information
-Drawing	:		59400-E7350-B Angular Pin.pdf
-Material	:	 	SKS3
-Sketch	:	 	59400-E7350-B Angular Pin.pdf
-
-dan ada juga untuk 
-Shared Tool	
-ID	Product	Tool BOM
+buat tampilannya sama dengan 
+tapi yg isinya 	ID,	Tool BOM,	Description,	Product,	Machine Group,	Revision,	Status,	Modified By, Action (edit,history,delate)
  	
 
 
