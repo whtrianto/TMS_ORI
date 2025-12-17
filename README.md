@@ -1,33 +1,33 @@
-ubah pada bagian 
-* (warna merah) = required information
-
-Product*	:		FC 10SRE11 NEW IMV
-Tool Name*	:		3D Drawing
-Tool Drawing No.*	:		dc476235
-Revision*	:		0
+buat file baru untuk detailnya ketika klik isian tool drawing no. maka akan muncul data sebagai berikut.
+Product	:		FC 10SRE13 FOX/DV5
+Tool Name	:		ANGULAR PIN
+Tool Drawing No.	:		59400-E7350
+Revision	:		0
 Maker	:		
- Submit
 Min Quantity	:		
 1
 Replenish Quantity	:		
 1
-Process*	:		DIE CASTING
+Process	:		DIE CASTING
 Price	:		
 0
 Standard Tool Life	:		
-300000
+500000
 Standard Rework	:		
 Description	:		
 Status	:		Active
-Effective Date	:		21/08/2017
+Effective Date	:		11/11/2019
 Change Summary	:	 	
 	Additional Information
-Drawing*	:		dc476235.x_t
-Material	:	 	SKD 61
-Sketch	:	 	
- 	No file chosen
- 	 	 	 
-tambahkan juga bagian baawahnya Shared Tool seperti pada 
+Drawing	:		59400-E7350-B Angular Pin.pdf
+Material	:	 	SKS3
+Sketch	:	 	59400-E7350-B Angular Pin.pdf
+
+dan ada juga untuk 
+Shared Tool	
+ID	Product	Tool BOM
+ 	
+
 
 
 saya ingin ubah untuk data user ngambil di sini 
