@@ -1,4 +1,33 @@
-coba buat ulang isinya Tool Drawing No.,	Tool Name,	Min Quantity,	Replenish Quantity,	Maker,	Price,	Description,	Effective Date,	Material,	Standard Tool Life , Action. analisa database
+ubah pada bagian 
+* (warna merah) = required information
+
+Product*	:		FC 10SRE11 NEW IMV
+Tool Name*	:		3D Drawing
+Tool Drawing No.*	:		dc476235
+Revision*	:		0
+Maker	:		
+ Submit
+Min Quantity	:		
+1
+Replenish Quantity	:		
+1
+Process*	:		DIE CASTING
+Price	:		
+0
+Standard Tool Life	:		
+300000
+Standard Rework	:		
+Description	:		
+Status	:		Active
+Effective Date	:		21/08/2017
+Change Summary	:	 	
+	Additional Information
+Drawing*	:		dc476235.x_t
+Material	:	 	SKD 61
+Sketch	:	 	
+ 	No file chosen
+ 	 	 	 
+tambahkan juga bagian baawahnya Shared Tool seperti pada 
 
 
 saya ingin ubah untuk data user ngambil di sini 
