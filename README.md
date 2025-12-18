@@ -1,5 +1,38 @@
-Tool Inventory Listing														
-Reported on: 2025-12-18 14:10:59														
-Status	In	InUsed, New, Available, DesignChange, Allocated, Onhold, Repairing, Modifying, Scrapped 												
-														
-ID	Tool Tag	RQ No.	Product	Tool Name	Tool Drawing No.	Received Date	Do No.	Tool ID	Status	Notes	Storage Location	Material	Tool Condition	End Cycle
+
+Allow Select Old Revision (checkbox)
+ 	
+Tool Drawing No.	:		
+ Submit 
+Tool ID	:		
+  
+Product	:	 	
+Process	:	 	
+Tool Name	:	
+
+Assetized	:	(checkbox)
+Revision	:		
+Tool Tag	:	 	
+Tool Status	:		
+Tool Condition	:		
+In Tool Set	:		
+Storage Location	:		
+ Submit
+Notes	:		
+Begin Cycle	:		
+End Cycle	:		
+
+	Order Information
+RQ No.	:	 	
+ 	
+ Submit
+ 	
+Maker	:	 	
+ Submit
+Maker Code	:	 	
+Material	:	 	
+Submit
+Purchase Type	:	 	
+Local
+DO No.	:	 	
+Received Date	:	 	
+Submit
