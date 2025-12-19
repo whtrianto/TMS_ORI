@@ -1,9 +1,22 @@
-Product	:		FC 10SRE11 NEW IMV
-Tool Name	:		3D Drawing
-Tool Drawing No.	:		dc476235
-Revision	:		0
-Process	:		DIE CASTING
-Drawing	:		dc476235.x_t
-Status	:		Active
-Effective Date	:		21/08/2017
-Material	:	 	SKD 61
+Trial BOM	:	 	checkbox
+Product	:		
+ Submit 
+Tool BOM	:		
+ 
+Revision	:		
+ 
+Process	:		
+ Submit 
+Machine Group	:		
+ Submit 
+Description	:	 	
+Status	:	 	
+Pending
+Effective Date	:		
+19-12-2025
+ Submit
+Change Summary	:	 	
+	Additional Information
+Drawing	:		
+ 	No file chosen 
+Sketch	:
