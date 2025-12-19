@@ -1,1 +1,1 @@
-	ID,	Date	WO No.,	WO Type,	Requested By,	Tool ID,	Tool Drawing No,	Target Completion Date,	Actual Completion Date,	WO Status,	Reason,	Tool Making Draw. No.,	RQ No., Action (edit, delete)
+DataTables warning: table id=table-tool-work-order - Ajax error. For more information about this error, please see http://datatables.net/tn/7
