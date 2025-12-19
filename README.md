@@ -1,31 +1,9 @@
-rapikan untuk jumlah tiap colomnya biar pas kanan kirinya.
-dan untuk edit
-(semua bisa diedit kecuali W/O No.	:		
-W-110516-0002
-W/O Type	:		Repair
-Created By	:	 	
-Administrator
-Tool ID	:		
-000001-N9999-16001
- 
-Tool Tag	:	 	
-B1979
-:		
-Tool Drawing No	:	 	
-TestCorePin
-Revision	:	 	
-1
-Tool Name	:	 	
-CORE PIN
-W/O Status	:	 	Closed)
-
-
-untuk yg Requested By	dapat di select yg isiannya popup seperti ini:
-ID	User	Position
-
-untuk yg Department	dapat di select yg isiannya popup seperti ini:
-ID	Department	Description
-
-
-
-
+Product	:		FC 10SRE11 NEW IMV
+Tool Name	:		3D Drawing
+Tool Drawing No.	:		dc476235
+Revision	:		0
+Process	:		DIE CASTING
+Drawing	:		dc476235.x_t
+Status	:		Active
+Effective Date	:		21/08/2017
+Material	:	 	SKD 61
