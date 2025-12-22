@@ -1,4 +1,4 @@
-buatkan add fungsi tool scrap isiannya
+buatkan add fungsi tool scrap. buat tampilannya 2 colom. isiannya
 
 Tool Scrap Details
 colom kiri=
@@ -54,3 +54,24 @@ To Order	:
 colom kanan
 Approve By	:	 	
 Approve Date	:	 
+
+buat ketentuannya sebagai berikut=
+yg hanya bisa diedit yaitu=
+Issue Date	:	
+Requested By	:	
+Accident/ Scrap Date	:		
+Machine	:	 	
+Operator	:	 
+Tool ID	:	
+Reason	:
+Counter Measure	:	 	
+Cause	:	 
+Cause Remark	:	 	
+Investigated By	:
+Suggestion	:	 	
+To Order	:	 
+
+yg isian select dibuat pop up kecuali ini 
+(
+Suggestion	:	 	
+To Order	:	 ) dibuat dropdown
