@@ -1,6 +1,13 @@
-ERROR - 2025-12-22 13:06:50 --> Query error: [Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Invalid column name 'MAC_DESC'. - Invalid query: SELECT 
-                    MAC_ID AS ID,
-                    MAC_NAME AS NAME,
-                    ISNULL(MAC_DESC, '') AS DESCRIPTION
-                FROM TMS_NEW.dbo.MS_MACHINES
-                ORDER BY MAC_NAME ASC
+Fatal error: Allowed memory size of 536870912 bytes exhausted (tried to allocate 152098334 bytes) in C:\laragon_new\www\taci-mfg-trial\system\core\Output.php on line 457
+A PHP Error was encountered
+Severity: Error
+
+Message: Allowed memory size of 536870912 bytes exhausted (tried to allocate 152098334 bytes)
+
+Filename: core/Output.php
+
+Line Number: 457
+
+Backtrace:
+
+ERROR - 2025-12-22 13:12:30 --> Severity: Error --> Allowed memory size of 536870912 bytes exhausted (tried to allocate 152098334 bytes) C:\laragon_new\www\taci-mfg-trial\system\core\Output.php 457
