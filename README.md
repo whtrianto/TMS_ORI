@@ -1,9 +1,9 @@
-Error Number: 42000/145
-
-[Microsoft][ODBC Driver 11 for SQL Server][SQL Server]ORDER BY items must appear in the select list if SELECT DISTINCT is specified.
-
-SELECT DISTINCT TOP 500 inv.INV_TOOL_ID, inv.INV_MLR_ID, mlr.MLR_OP_ID AS PROCESS_ID, mlr.MLR_TC_ID AS TOOL_NAME_ID, mlr.MLR_REV AS REVISION, ml.ML_ID AS TOOL_DRAWING_ML_ID, (SELECT TOP 1 TMLP_PART_ID FROM TMS_NEW.dbo.TMS_TOOL_MASTER_LIST_PARTS WHERE TMLP_ML_ID = ml.ML_ID) AS PRODUCT_ID FROM TMS_NEW.dbo.TMS_TOOL_INVENTORY inv INNER JOIN TMS_NEW.dbo.TMS_TOOL_MASTER_LIST_REV mlr ON mlr.MLR_ID = inv.INV_MLR_ID INNER JOIN TMS_NEW.dbo.TMS_TOOL_MASTER_LIST ml ON ml.ML_ID = mlr.MLR_ML_ID WHERE inv.INV_TOOL_ID IS NOT NULL AND inv.INV_TOOL_ID <> '' ORDER BY inv.INV_ID DESC
-
-Filename: C:/laragon_new/www/taci-mfg-trial/system/database/DB_driver.php
-
-Line Number: 691
+Storage Location	:		
+Notes	:		
+Begin Cycle	:	
+RQ No.	:	 	
+Maker	:	 
+Material	:	 	
+Purchase Type	:	 	
+DO No.	:	 	
+Received Date	:
