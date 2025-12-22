@@ -1,77 +1,10 @@
-buatkan add fungsi tool scrap. buat tampilannya 2 colom. isiannya
+A Database Error Occurred
+Error Number: 42000/156
 
-Tool Scrap Details
-colom kiri=
-Issue Date	:		
-Requested By	:		
-Tool Scrap No.	:	
-colom kanan=
-Accident/ Scrap Date	:		
-Machine	:	 	
-Operator	:	 	
-Status	:	 
+[Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Incorrect syntax near the keyword 'USER'.
 
-Tool Information
-colom kiri=
-Tool ID	:		
-Tool Name	:	 	
-Material	:	 	
-RQ No.	:	 	
-Tool Price	:	 	
-Tool Residue Value	:	
-colom kanan
-Drawing No.	:	 	
-Revision	:	 	
-Tool Assignment No	:	 	
-Pcs Produced	:	
+SELECT USR_ID AS ID, USR_NAME AS USER, ISNULL(USR_POSITION, '') AS POSITION FROM TMS_NEW.dbo.MS_USERS WHERE USR_IS_DELETED = 0 OR USR_IS_DELETED IS NULL ORDER BY USR_NAME ASC
 
+Filename: C:/laragon_new/www/taci-mfg-trial/system/database/DB_driver.php
 
-Tool Inventory Status		
-colom kiri
-This Tool Drawing		 	
-Std. Qty	:	 	
-Not Received Qty	:	 	
-Curr. Qty	:	 
-colom kanan
-This + Interchangeable Tool Drawing		 	
-Std. Qty	:	 	
-Not Received Qty	:	 	
-Curr. Qty	:	
-
-	Investigation
-colom kiri
-Reason	:	 	
-Counter Measure	:	
-colom kanan
-Cause	:	 	
-Cause Remark	:	 	
-Investigated By	:	
-
-Decision		
-colom kiri
-Suggestion	:	 	
-To Order	:	 	
-colom kanan
-Approve By	:	 	
-Approve Date	:	 
-
-buat ketentuannya sebagai berikut=
-yg hanya bisa diedit yaitu=
-Issue Date	:	
-Requested By	:	
-Accident/ Scrap Date	:		
-Machine	:	 	
-Operator	:	 
-Tool ID	:	
-Reason	:
-Counter Measure	:	 	
-Cause	:	 
-Cause Remark	:	 	
-Investigated By	:
-Suggestion	:	 	
-To Order	:	 
-
-yg isian select dibuat pop up kecuali ini 
-(
-Suggestion	:	 	
-To Order	:	 ) dibuat dropdown
+Line Number: 691
