@@ -1,22 +1,2 @@
-Trial BOM	:	 	checkbox
-Product	:		
- Submit 
-Tool BOM	:		
- 
-Revision	:		
- 
-Process	:		
- Submit 
-Machine Group	:		
- Submit 
-Description	:	 	
-Status	:	 	
-Pending
-Effective Date	:		
-19-12-2025
- Submit
-Change Summary	:	 	
-	Additional Information
-Drawing	:		
- 	No file chosen 
-Sketch	:
+pada bagian http://localhost/taci-mfg-trial/Tool_inventory/tool_inventory/submit_data
+kok jadinya kek gini notifnya {"success":false,"message":"Save functionality will be implemented in model."} gak yg notif popup biasanya.
