@@ -1,9 +1,3 @@
-Storage Location	:		
-Notes	:		
-Begin Cycle	:	
-RQ No.	:	 	
-Maker	:	 
-Material	:	 	
-Purchase Type	:	 	
-DO No.	:	 	
-Received Date	:
+gagal tambah data di
+ERROR - 2025-12-22 11:23:43 --> Query error: [Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Error converting data type varchar to bigint. - Invalid query: INSERT INTO TMS_NEW.dbo.TMS_TOOL_INVENTORY (INV_TOOL_ID, INV_MLR_ID, INV_TOOL_TAG, INV_STATUS, INV_NOTES, INV_RQ_NO, INV_MAKER_ID, INV_MAT_ID, INV_PURCHASE_TYPE, INV_DO_NO, INV_TOOL_CONDITION, INV_BEGIN_CYCLE, INV_END_CYCLE, INV_IN_TOOL_SET, INV_ASSETIZED) VALUES ('000-0907-337959', 51648, '337959', 1, '111', 'O-080817-0007', 46, 10140, 'Local', '1', 1, 0, 0, 1, 0)
+
